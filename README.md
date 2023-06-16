@@ -1,31 +1,42 @@
-# Books
+# :book: Books
 
-## :rocket: Download books
+## :dog: Introduction:
+- Welcome to this repository, where you'll find an extensive collection of books
+conveniently hosted in one place. The goal is to make it easy for you to explore
+and access a diverse range of literary works.
 
-- __Step 1: Install `git-lfs` on your local machine__
+- Due to GitHub's invalidation of file uploads above 100MB, certain books in this 
+repository have been compressed with the `.xz` extension. This repository includes 
+Python scripts specifically designed to manage and handle this limitation in `/bin/` directory.
 
-#### Windows
 
-```
-scoop install git-lfs
-```
+## :cat: For download books
 
-#### Ubuntu-based
+- Firstly, clone the repo:
 
-```
-sudo apt install git-lfs
-```
-
-- __Step 2: Initialize git-lfs__
-
-```
-git-lfs install
+```sh
+git clone https://github.com/hungpham3112/Books.git && cd Books
 ```
 
-- __Step 3: Clone the repo__
+- Secondly, extract some compressed books (Python is required)
 
-```
-git clone git@github.com:hungpham3112/Books.git
+```python
+python bin\extract.py
 ```
 
+- Enjoy:tada::tada::tada:
+
+## :fish: For uploads books
+
+- Firstly, check if there are files more than 100MB
+
+```python
+python bin\find.py
+```
+
+- Secondly, compress book to `.xz` extension (Duration will depend on the file size.)
+
+```python
+python bin\compress.py
+```
 
