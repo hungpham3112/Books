@@ -40,3 +40,5 @@ python bin\find.py
 python bin\compress.py
 ```
 
+- Finally, commit your book:fox_face:
+
