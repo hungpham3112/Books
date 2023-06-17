@@ -13,8 +13,12 @@ os.chdir(script_directory)
 # Function to compress a file
 def compress_file(file_path):
     if file_path.is_file() and file_path.stat().st_size > 100 * 1024 * 1024:  # 100MB in bytes
-        base_filename = file_path.stem
+        base_filename = file_path.name
         file_directory = file_path.parent
+
+        # Skip files within the .git directory
+        if ".git" in file_directory.parts:
+            return
 
         # Create the compressed file with the original file extension
         compressed_file = file_directory / f"{base_filename}.xz"
@@ -25,6 +29,8 @@ def compress_file(file_path):
 
         # Remove the original file
         file_path.unlink()
+
+        print(f"\nCompressed: {compressed_file}")  # Print the compressed file name
 
 # Find files larger than 100MB (excluding .git directory) and compress them using parallel processing
 with ThreadPoolExecutor() as executor:
